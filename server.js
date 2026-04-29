@@ -6,14 +6,20 @@ const bcrypt = require('bcryptjs');
 const { PrismaClient } = require('@prisma/client');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT) || 3000;
 const prisma = new PrismaClient();
+
+app.set('trust proxy', 1);
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname));
+
+// Без БД: для проверок Railway / балансировщика
+app.get('/health', (req, res) => {
+    res.status(200).type('text/plain').send('ok');
+});
 
 function mapOrder(order) {
     return {
@@ -189,18 +195,25 @@ app.post('/api/reviews', async (req, res) => {
     }
 });
 
-// Serve index.html for all routes
+app.use(express.static(__dirname));
+
+// SPA: всё остальное — index.html
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Railway и другие платформы проксируют трафик только на 0.0.0.0 + PORT
-app.listen(PORT, '0.0.0.0', async () => {
+async function start() {
     try {
         await prisma.$connect();
-        console.log(`Server listening on 0.0.0.0:${PORT}`);
+        console.log('Database connected');
     } catch (error) {
         console.error('Database connection failed:', error);
         process.exit(1);
     }
-});
+
+    app.listen(PORT, '0.0.0.0', () => {
+        console.log(`Server listening on 0.0.0.0:${PORT}`);
+    });
+}
+
+start();
