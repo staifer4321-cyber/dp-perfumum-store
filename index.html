@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&P Perfumum - Магазин парфюмерии</title>
+    <!-- Шрифты и иконки -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Видео фон -->
+    <div class="video-background">
+        <!-- Бесплатное видео с парфюмом с Pexels -->
+        <video autoplay muted loop playsinline>
+            <source src="d:\Download\парф-2165414277-192_srp.mp4" type="video/mp4">
+            <!-- Запасной вариант видео с парфюмом -->
+            <source src="d:\Download\парф-2165414277-192_srp.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео фон.
+        </video>
+    </div>
+    <div class="overlay"></div>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>D&P Perfumum</h1>
+                <p>ИСКУССТВО АРОМАТОВ</p>
+            </div>
+            <div class="header-actions">
+                <div class="auth-section" id="authSection">
+                    <button class="btn-auth" id="authBtn">
+                        <i class="fas fa-user"></i> Войти
+                    </button>
+                </div>
+                <div class="cart" id="cartIcon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Корзина</span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="tabs">
+                <li class="tab-link active" data-tab="tab1">Парфюмы</li>
+                <li class="tab-link" data-tab="tab2">Отзывы</li>
+                <li class="tab-link" data-tab="tab3">Оплата</li>
+                <li class="tab-link" data-tab="tab4">Контакты</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Секция Товары -->
+    <section id="tab1" class="tab-section active-section container">
+        <h2>Наши ароматы</h2>
+        <div class="product-grid" id="productGrid">
+            <!-- Товары будут добавляться через JS -->
+        </div>
+    </section>
+
+    <!-- Секция Отзывы -->
+    <section id="tab2" class="tab-section container">
+        <h2>Отзывы наших клиентов</h2>
+        <div class="reviews-grid" id="reviewsGrid">
+            <!-- Отзывы будут добавлены через JS -->
+        </div>
+    </section>
+
+    <!-- Секция Способы оплаты -->
+    <section id="tab3" class="tab-section container">
+        <h2>Способы оплаты</h2>
+        <div class="payment-methods">
+            <div class="payment-method">
+                <i class="fas fa-money-bill-wave"></i>
+                <h3>Наличными</h3>
+                <p>Оплата наличными при получении заказа</p>
+            </div>
+            <div class="payment-method">
+                <i class="fas fa-credit-card"></i>
+                <h3>Банковской картой</h3>
+                <p>Оплата картой в магазине или онлайн</p>
+            </div>
+            <div class="payment-method">
+                <i class="fas fa-university"></i>
+                <h3>Банковским переводом</h3>
+                <p>Перевод на расчетный счет</p>
+            </div>
+            <div class="payment-method">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Рассрочка</h3>
+                <p>Удобная рассрочка на выгодных условиях</p>
+            </div>
+            <div class="payment-method">
+                <i class="fas fa-wallet"></i>
+                <h3>Безналичная оплата</h3>
+                <p>Оплата для юридических лиц</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Контакты -->
+    <section id="tab4" class="tab-section container">
+        <h2>Свяжитесь с нами</h2>
+        <div class="contacts-info">
+            <div class="contact-details">
+                <h3>D&P Perfumum</h3>
+                <p><i class="fas fa-map-marker-alt"></i> ул. Ароматная, 15, Москва</p>
+                <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                <p><i class="fas fa-envelope"></i> info@dpperfumum.ru</p>
+                <p><i class="fas fa-clock"></i> Пн-Вс: 10:00 - 21:00</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                </div>
+            </div>
+            <div class="map">
+                <!-- Здесь можно вставить карту, например, Яндекс.Карты -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.252523456789!2d37.6176!3d55.7558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDQ1JzIwLjgiTiAzN8KwMzcnMDMuNCJF!5e0!3m2!1sru!2sru!4v1620000000000!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно авторизации -->
+    <div id="authModal" class="auth-modal">
+        <div class="auth-content">
+            <span class="close-auth" id="closeAuthModal">&times;</span>
+            <h2 id="modalTitle">Вход</h2>
+            <form id="authForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="authEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="password" id="authPassword" required>
+                </div>
+                <div class="form-group">
+                    <label>Роль</label>
+                    <select id="authRole" required>
+                        <option value="customer">Покупатель</option>
+                        <option value="admin">Администратор</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-auth-submit">Войти</button>
+                <p class="auth-switch">
+                    Нет аккаунта? <a href="#" id="switchToRegister">Зарегистрироваться</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно корзины -->
+    <div id="cartModal" class="cart-modal">
+        <div class="cart-content">
+            <span class="close-cart" id="closeCart">&times;</span>
+            <h2 style="font-family: 'Playfair Display'; margin-bottom: 20px; color: #b88b4a;">Ваша корзина</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal">Итого: 0 ₽</div>
+            <button class="checkout-btn" id="checkoutBtn">Оформить заказ</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 D&P Perfumum. Все права защищены.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
