@@ -194,10 +194,11 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, async () => {
+// Railway и другие платформы проксируют трафик только на 0.0.0.0 + PORT
+app.listen(PORT, '0.0.0.0', async () => {
     try {
         await prisma.$connect();
-        console.log(`Server is running on http://localhost:${PORT}`);
+        console.log(`Server listening on 0.0.0.0:${PORT}`);
     } catch (error) {
         console.error('Database connection failed:', error);
         process.exit(1);
